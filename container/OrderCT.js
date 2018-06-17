@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { addTodo } from '../actions'
-import Topics from '../page/Topics'
+import Order from '../page/Order'
 
 const mapStateToProps = (state, ownProps) => ({
   list: state
@@ -13,4 +13,4 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Topics)
+)(Order)

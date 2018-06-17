@@ -1,12 +1,15 @@
 import React from 'react';
-import { StyleSheet, Text, View,AppRegistry } from 'react-native';
+import { StyleSheet, Text, View,AppRegistry,Dimensions } from 'react-native';
 import { createStore } from 'redux'
 import { Provider,connect } from 'react-redux'
 import rootReducer from './reducter'
 import './mock'
-import {Scene, Router,Stack,Modal,Lightbox,Drawer} from 'react-native-router-flux';
+import {Scene, Router,Stack,Modal,Lightbox,Drawer,Tabs} from 'react-native-router-flux';
 import asyncComponent from './components/AsyncComponent'
+import Nav from './components/Nav'
 import { addTodo } from './actions'
+global.w = Dimensions.get('window').width/750;
+global.h = Dimensions.get('window').height/750;
 if (!window.location) {
     // App is running in simulator
     window.navigator.userAgent = 'ReactNative';
@@ -20,9 +23,16 @@ const socket = io('http://192.168.2.195:3000', {
 socket.on('connect', () => {
   console.log('connected!');
 });
-const AboutCT = asyncComponent(() => import("./container/AboutCT"));
 const HomeCT = asyncComponent(() => import("./container/HomeCT"));
-const TopicsCT = asyncComponent(() => import("./container/TopicsCT"));
+const MenuCT = asyncComponent(() => import("./container/MenuCT"));
+const MineCT = asyncComponent(() => import("./container/MineCT"));
+const OrderCT = asyncComponent(() => import("./container/OrderCT"));
+const OrderNoFinishCT = asyncComponent(() => import("./container/OrderNoFinishCT"));
+const OrderFinishedCT = asyncComponent(() => import("./container/OrderFinishedCT"));
+const ShoppingCartCT = asyncComponent(() => import("./container/ShoppingCartCT"));
+const LoginCT = asyncComponent(() => import("./container/LoginCT"));
+const DetailCT = asyncComponent(() => import("./container/DetailCT"));
+const Tab = asyncComponent(() => import("./components/Tab"));
 const store = createStore(rootReducer)
 const ConnectedRouter = connect()(Router)
 
@@ -34,7 +44,11 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   header: {
-    fontSize: 20,
+    height:50
+  },
+  title:{
+    marginLeft:'auto',
+    marginRight:'auto'
   },
   nav: {
     flexDirection: 'row',
@@ -51,16 +65,19 @@ const styles = StyleSheet.create({
   topic: {
     textAlign: 'center',
     fontSize: 15,
+  },
+  tabbar:{
+
   }
 })
 
 export default class App extends React.Component {
-  async getMoviesFromApi(){
+    async getMoviesFromApi(){
       try {
         // 注意这里的await语句，其所在的函数必须有async关键字声明
-        let response = await fetch('http://g.cn');
-        response = await response.json()
-        console.log(response)
+        //let response = await fetch('http://g.cn');
+        //response = await response.json()
+        //console.log(response)
       } catch(error) {
         console.error(error);
       }
@@ -73,21 +90,28 @@ export default class App extends React.Component {
     });
   }
 
-  componentDidMount(){
-
-  }
-
   render() {
     return (
-  <Provider store={store}>
-    <ConnectedRouter>
-      <Drawer key="drawer"
-              contentComponent={TopicsCT} drawerPosition="right">
+    <Provider store={store}>
+      <ConnectedRouter>
           <Modal>
-          <Scene key="home" component={HomeCT} title="Home"/>
-          <Scene key="about" component={AboutCT} title="About"/>
+          <Tabs
+                  key="tabbar"
+                  swipeEnabled
+                  animationEnabled={true}
+                  tabBarPosition="bottom"
+                  tabBarComponent={Tab}
+                >
+          <Scene key="home" component={HomeCT} hideNavBar={true}/>
+            <Scene key="Menu" tabBarLabel="Menu" component={MenuCT} title="Menu" navBar={Nav}>
+              <Lightbox key="Detail" component={DetailCT} title="Detail"/>
+            </Scene>
+          <Scene key="Mine" component={MineCT} tabBarLabel="Mine" title="mine" navBar={Nav}/>
+          <Scene key="Order" component={OrderCT} title="Order" navBar={Nav}/>
+          <Scene key="ShoppingCart" component={ShoppingCartCT} title="shoppingCart" navBar={Nav}/>
+          </Tabs>
+          <Scene key="Login" component={LoginCT} title="Login"/>
           </Modal>
-      </Drawer>
     </ConnectedRouter>
   </Provider>
     );

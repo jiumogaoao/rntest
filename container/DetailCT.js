@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { addTodo } from '../actions'
-import About from '../page/About'
+import Detail from '../page/Detail'
 
 const mapStateToProps = (state, ownProps) => ({
   list: state
@@ -13,4 +13,4 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(About)
+)(Detail)
