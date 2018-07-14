@@ -30,7 +30,10 @@ const glyphMap = {
   'bigCup':58981,
   'scan':58881,
   'bell':58883,
-  'mine':58887
+  'mine':58887,
+  'close':58888,
+  'heart':59623,
+  'ticket3':58889
  };
 const CustomIcon = createIconSet(glyphMap, 'FontName');
 export default class IconFont extends Component {
@@ -45,6 +48,6 @@ export default class IconFont extends Component {
   }
   render() {
     if (!this.state.fontLoaded) { return (<View><Text>333</Text></View>)}
-    return (<CustomIcon name={this.props.name||'default'} size={this.props.size||32} color={this.props.color||'#ddd'} />)
+    return (<CustomIcon name={this.props.name||'default'} size={parseInt((this.props.size||32)*w)} color={this.props.color||'#ddd'} />)
   }
 }

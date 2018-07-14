@@ -7,7 +7,7 @@ export default class OrderFinished extends Component {
       <View>
       <TouchableOpacity onPress={this.props.onClick}>
         <Text>
-          {this.props.list.todos.length}OrderFinished
+          OrderFinished
         </Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={Actions.about}><Text>about</Text></TouchableOpacity>

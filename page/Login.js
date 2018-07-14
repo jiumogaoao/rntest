@@ -7,7 +7,7 @@ export default class Login extends Component {
       <View>
       <TouchableOpacity onPress={this.props.onClick}>
         <Text>
-          {this.props.list.todos.length}Home
+          Home
         </Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={Actions.about}><Text>about</Text></TouchableOpacity>

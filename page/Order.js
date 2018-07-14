@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View,AppRegistry,TouchableOpacity,Button } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import asyncComponent from '../components/AsyncComponent';
+const SubTab = asyncComponent(() => import("../components/SubTab"));
+const List = asyncComponent(() => import("../components/List"));
 export default class Order extends Component {
   render() {
     return (
       <View>
-      <TouchableOpacity onPress={this.props.onClick}>
-        <Text>
-          {this.props.list.todos.length}Order
-        </Text>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={Actions.about}><Text>about</Text></TouchableOpacity>
+        <SubTab/>
+        <List/>
       </View>
     )
     }

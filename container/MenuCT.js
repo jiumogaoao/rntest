@@ -1,9 +1,8 @@
 import { connect } from 'react-redux'
-import { addTodo } from '../actions'
 import Menu from '../page/Menu'
 
 const mapStateToProps = (state, ownProps) => ({
-  list: state
+  list: state.menu
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
