@@ -55,127 +55,207 @@ export default class App extends React.Component {
     });
     store.dispatch(refresh({
       "大师咖啡":{
-        "标准美式":{
-          dsc:"Americano",
-          state:"默认：大/无糖/无奶/热",
-          price:21,
-          tap:"买2赠1，买5赠5",
-          img:"../images/default.jpg",
-          saleEnd:false
-        },
-        "加浓美式":{
-          dsc:"Extra Americano",
-          state:"默认：大/无糖/无奶/热",
-          price:24,
-          tap:"买2赠1，买5赠5",
-          img:"../images/default.jpg",
-          saleEnd:false
-        },
-        "焦糖标准美式":{
-          dsc:"Caramel Americano",
-          state:"默认：大/无糖/无奶/热",
-          price:24,
-          tap:"买2赠1，买5赠5",
-          img:"../images/default.jpg",
-          saleEnd:false
-        },
-        "焦糖加浓美式":{
-          dsc:"Caramel Extra Americano",
-          state:"默认：大/无糖/无奶/热",
-          price:27,
-          tap:"买2赠1，买5赠5",
-          img:"../images/default.jpg",
-          saleEnd:false
+        name:"大师咖啡",
+        dsc:"",
+        list:{
+          "标准美式":{
+            gid:"大师咖啡",
+            id:"标准美式",
+            name:"标准美式",
+            dsc:"Americano",
+            state:"默认：大/无糖/无奶/热",
+            price:21,
+            tap:"买2赠1，买5赠5",
+            img:"../images/default.jpg",
+            saleEnd:false,
+            count:0
+          },
+          "加浓美式":{
+            gid:"大师咖啡",
+            id:"加浓美式",
+            name:"加浓美式",
+            dsc:"Extra Americano",
+            state:"默认：大/无糖/无奶/热",
+            price:24,
+            tap:"买2赠1，买5赠5",
+            img:"../images/default.jpg",
+            saleEnd:false,
+            count:0
+          },
+          "焦糖标准美式":{
+            gid:"大师咖啡",
+            id:"焦糖标准美式",
+            name:"焦糖标准美式",
+            dsc:"Caramel Americano",
+            state:"默认：大/无糖/无奶/热",
+            price:24,
+            tap:"买2赠1，买5赠5",
+            img:"../images/default.jpg",
+            saleEnd:false,
+            count:0
+          },
+          "焦糖加浓美式":{
+            gid:"大师咖啡",
+            id:"焦糖加浓美式",
+            name:"焦糖加浓美式",
+            dsc:"Caramel Extra Americano",
+            state:"默认：大/无糖/无奶/热",
+            price:27,
+            tap:"买2赠1，买5赠5",
+            img:"../images/default.jpg",
+            saleEnd:false,
+            count:0
+          }
         }
       },
       "零度拿铁":{
-        "红茶拿铁":{
-          dsc:"Black Tea Latte",
-          state:"默认：大/热",
-          price:27,
-          tap:"买2赠1，买5赠5",
-          img:"../images/default.jpg",
-          saleEnd:false
-        },
-        "抹茶拿铁":{
-          dsc:"Matcha Latte",
-          state:"默认：大/热",
-          price:27,
-          tap:"买2赠1，买5赠5",
-          img:"../images/default.jpg",
-          saleEnd:false
+        name:"零度拿铁",
+        dsc:"",
+        list:{
+          "红茶拿铁":{
+            gid:"零度拿铁",
+            id:"红茶拿铁",
+            name:"红茶拿铁",
+            dsc:"Black Tea Latte",
+            state:"默认：大/热",
+            price:27,
+            tap:"买2赠1，买5赠5",
+            img:"../images/default.jpg",
+            saleEnd:false,
+            count:0
+          },
+          "抹茶拿铁":{
+            gid:"零度拿铁",
+            id:"抹茶拿铁",
+            name:"抹茶拿铁",
+            dsc:"Matcha Latte",
+            state:"默认：大/热",
+            price:27,
+            tap:"买2赠1，买5赠5",
+            img:"../images/default.jpg",
+            saleEnd:false,
+            count:0
+          }
         }
       },
       "瑞纳冰":{
-        "小雪荔枝瑞纳冰":{
-          dsc:"Lychee Exfreezo",
-          state:"默认：大",
-          price:27,
-          tap:"买2赠1，买5赠5",
-          img:"../images/default.jpg",
-          saleEnd:false
-        },
-        "卡布奇诺瑞纳冰":{
-          dsc:"Cappuccion Exfreezo",
-          state:"默认：大",
-          price:27,
-          tap:"买2赠1，买5赠5",
-          img:"../images/default.jpg",
-          saleEnd:false
+        name:"瑞纳冰",
+        dsc:"",
+        list:{
+          "小雪荔枝瑞纳冰":{
+            gid:"瑞纳冰",
+            id:"小雪荔枝瑞纳冰",
+            name:"小雪荔枝瑞纳冰",
+            dsc:"Lychee Exfreezo",
+            state:"默认：大",
+            price:27,
+            tap:"买2赠1，买5赠5",
+            img:"../images/default.jpg",
+            saleEnd:false,
+            count:0
+          },
+          "卡布奇诺瑞纳冰":{
+            gid:"瑞纳冰",
+            id:"卡布奇诺瑞纳冰",
+            name:"卡布奇诺瑞纳冰",
+            dsc:"Cappuccion Exfreezo",
+            state:"默认：大",
+            price:27,
+            tap:"买2赠1，买5赠5",
+            img:"../images/default.jpg",
+            saleEnd:false,
+            count:0
+          }
         }
       },
       "经典饮品":{
-        "柑橘百香果":{
-          dsc:"Citrus Passionfruit Refresher",
-          state:"默认：大/热",
-          price:21,
-          tap:"买2赠1，买5赠5",
-          img:"../images/default.jpg",
-          saleEnd:false
-        },
-        "热巧克力":{
-          dsc:"Hot Chocolate",
-          state:"默认：大/热",
-          price:24,
-          tap:"买2赠1，买5赠5",
-          img:"../images/default.jpg",
-          saleEnd:false
+        name:"经典饮品",
+        dsc:"",
+        list:{
+          "柑橘百香果":{
+            gid:"经典饮品",
+            id:"柑橘百香果",
+            name:"柑橘百香果",
+            dsc:"Citrus Passionfruit Refresher",
+            state:"默认：大/热",
+            price:21,
+            tap:"买2赠1，买5赠5",
+            img:"../images/default.jpg",
+            saleEnd:false,
+            count:0
+          },
+          "热巧克力":{
+            gid:"经典饮品",
+            id:"热巧克力",
+            name:"热巧克力",
+            dsc:"Hot Chocolate",
+            state:"默认：大/热",
+            price:24,
+            tap:"买2赠1，买5赠5",
+            img:"../images/default.jpg",
+            saleEnd:false,
+            count:0
+          }
         }
       },
       "健康轻食":{
-        "越蔓莓司康":{
-          dsc:"Cranberry Scone",
-          state:"",
-          price:12,
-          tap:"买2赠1，买5赠5",
-          img:"../images/default.jpg",
-          saleEnd:false
-        },
-        "巧克力司康":{
-          dsc:"Chocolate Scone",
-          state:"",
-          price:12,
-          tap:"买2赠1，买5赠5",
-          img:"../images/default.jpg",
-          saleEnd:false
+        name:"健康轻食",
+        dsc:"",
+        list:{
+          "越蔓莓司康":{
+            gid:"健康轻食",
+            id:"越蔓莓司康",
+            name:"越蔓莓司康",
+            dsc:"Cranberry Scone",
+            state:"",
+            price:12,
+            tap:"买2赠1，买5赠5",
+            img:"../images/default.jpg",
+            saleEnd:false,
+            count:0
+          },
+          "巧克力司康":{
+            gid:"健康轻食",
+            id:"巧克力司康",
+            name:"巧克力司康",
+            dsc:"Chocolate Scone",
+            state:"",
+            price:12,
+            tap:"买2赠1，买5赠5",
+            img:"../images/default.jpg",
+            saleEnd:false,
+            count:0
+          }
         }
       },
       "新鲜沙拉":{
-        "鸡蛋火腿沙拉":{
-          dsc:"Egg Ham Salad",
-          state:"",
-          price:21,
-          tap:"买2赠1，买5赠5",
-          img:"../images/default.jpg",
-          saleEnd:false
-        },
-        "鸡肉火腿沙拉":{
-          dsc:"Chicken Bacon Salad",
-          state:"",
-          price:21,
-          tap:"买2赠1，买5赠5",
-          img:"../images/default.jpg",
-          saleEnd:false
+        name:"新鲜沙拉",
+        dsc:"",
+        list:{
+          "鸡蛋火腿沙拉":{
+            gid:"新鲜沙拉",
+            id:"鸡蛋火腿沙拉",
+            name:"鸡蛋火腿沙拉",
+            dsc:"Egg Ham Salad",
+            state:"",
+            price:21,
+            tap:"买2赠1，买5赠5",
+            img:"../images/default.jpg",
+            saleEnd:false,
+            count:0
+          },
+          "鸡肉火腿沙拉":{
+            gid:"新鲜沙拉",
+            id:"鸡肉火腿沙拉",
+            name:"鸡肉火腿沙拉",
+            dsc:"Chicken Bacon Salad",
+            state:"",
+            price:21,
+            tap:"买2赠1，买5赠5",
+            img:"../images/default.jpg",
+            saleEnd:false,
+            count:0
+          }
         }
       }
     }))

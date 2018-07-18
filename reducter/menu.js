@@ -8,8 +8,8 @@ const menu = (state = {}, action) => {
       }
       return state
     case 'REFLESH_POINT':
-      if(state[action.gid]&&state[action.gid][action.id]){
-        state[action.gid][action.id]=action.data
+      if(state[action.gid]&&state[action.gid]["list"][action.id]){
+        state[action.gid]["list"][action.id]=action.data
       }
       return state
     case 'ADD_GROUP':
@@ -18,8 +18,8 @@ const menu = (state = {}, action) => {
       }
       return state
     case 'ADD_POINT':
-      if(state[action.gid]&&!state[action.gid][action.id]){
-        state[action.gid][action.id]=action.data
+      if(state[action.gid]&&!state[action.gid]["list"][action.id]){
+        state[action.gid]["list"][action.id]=action.data
       }
       return state
     case 'REMOVE_GROUP':
@@ -28,8 +28,20 @@ const menu = (state = {}, action) => {
       }
       return state
     case 'REMOVE_POINT':
-      if(state[action.gid]&&state[action.gid][action.id]){
-        delete state[action.gid][action.id]
+      if(state[action.gid]&&state[action.gid]["list"][action.id]){
+        delete state[action.gid]["list"][action.id]
+      }
+      return state
+    case 'ADD_COUNT':
+      debugger;
+      if(state[action.gid]&&state[action.gid]["list"][action.id]){
+        state[action.gid]["list"][action.id].count+=1
+      }
+      return state
+    case 'SUB_COUNT':
+      debugger;
+      if(state[action.gid]&&state[action.gid]["list"][action.id]){
+        state[action.gid]["list"][action.id].count-=1
       }
       return state
     default:

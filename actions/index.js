@@ -40,3 +40,15 @@ export const removePoint = (gid,id,data) => ({
   gid,
   data
 })
+
+export const addCount = (gid,id) => ({
+  type: 'ADD_COUNT',
+  gid,
+  id
+})
+
+export const subCount = (gid,id) => ({
+  type: 'SUB_COUNT',
+  gid,
+  id
+})

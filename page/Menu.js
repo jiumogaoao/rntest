@@ -31,22 +31,21 @@ export default class Menu extends Component {
         <Swaper height={260}/>
         <View style={this.style.frame}>
           <View style={this.style.left}>
-            <MenuNav name="大师咖啡" hl={true}/>
-            <MenuNav name="零度拿铁"/>
-            <MenuNav name="瑞纳冰"/>
-            <MenuNav name="经典饮品"/>
-            <MenuNav name="健康轻食"/>
-            <MenuNav name="新鲜沙拉"/>
+            {
+              Object.entries(this.props.list).map((group)=><MenuNav name={group[1].name}/>)
+            }
           </View>
           <View style={this.style.right}>
-            <MenuTitle title="大师咖啡" dsc="WBC (世界咖啡师大赛) 冠军团队拼配"/>
-            <View style={{alignItems:'center'}}>
-              <MenuPoint title="标准美式" dsc="Americano" default="默认：大/无糖/无奶/热" price="24" count="0" cl={Actions.Detail}/>
-              <MenuPoint title="标准美式" dsc="Americano" default="默认：大/无糖/无奶/热" price="24" count="0" cl={Actions.Detail}/>
-              <MenuPoint title="标准美式" dsc="Americano" default="默认：大/无糖/无奶/热" price="24" count="0" cl={Actions.Detail}/>
-              <MenuPoint title="标准美式" dsc="Americano" default="默认：大/无糖/无奶/热" price="24" count="0" cl={Actions.Detail}/>
-              <MenuPoint title="标准美式" dsc="Americano" default="默认：大/无糖/无奶/热" price="24" count="0" cl={Actions.Detail}/>
-            </View>
+            {
+              Object.entries(this.props.list).map((group)=><View>
+                <MenuTitle title={group[0]} dsc={group[1].dsc}/>
+                <View style={{alignItems:'center'}}>
+                  {
+                    Object.entries(group[1].list).map(point => <MenuPoint title={point[1].name} img={point[1].img} dsc={point[1].dsc} default={point[1].state} price={point[1].price} count={point[1].count} cl={()=>{Actions.Detail(point)}}/>)
+                  }
+                </View>
+              </View>)
+            }
           </View>
         </View>
       </View>

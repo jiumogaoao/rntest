@@ -50,7 +50,7 @@ export default class MenuPoint extends Component {
   render() {
     return (<View style={this.style.frame}>
         <View>
-          <Image style={this.style.img} source={require('../images/default.jpg')}/>
+          <Image style={this.style.img} source={{uri:this.props.img}}/>
         </View>
         <View style={this.style.right}>
           <View>
